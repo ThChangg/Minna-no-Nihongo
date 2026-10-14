@@ -1,0 +1,21 @@
+#app { max-width: 560px; }
+.word { font-family: 'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', sans-serif; font-size: 2.6rem; font-weight: 700; color: var(--bs-primary); word-break: break-word; }
+
+/* Gợi ý phím tắt: viền outline, nằm góc trên bên phải của nút */
+[data-key] { position: relative; }
+.text-start[data-key] { padding-right: 3.2rem !important; }
+/* Nút căn giữa có gợi ý phím: chừa chỗ hai bên (đối xứng) để gợi ý không đè lên chữ */
+.btn:has(> .key-hint):not(.text-start):not(.btn-link) { padding-left: 3rem !important; padding-right: 3rem !important; }
+/* gợi ý chỉ 1 ký tự (1, 2...) thì chừa ít hơn, để nút hẹp trên điện thoại không bị xuống dòng */
+.btn.hint-sm:has(> .key-hint):not(.text-start):not(.btn-link) { padding-left: 1.8rem !important; padding-right: 1.8rem !important; }
+.key-hint {
+  position: absolute; top: 4px; right: 6px;
+  padding: 0 .35rem; font-size: .7rem; line-height: 1.3; font-family: inherit;
+  color: inherit; background: transparent; border: 1px solid currentColor; border-radius: .25rem; opacity: .7;
+}
+.btn-link .key-hint { position: static; margin-left: .4rem; vertical-align: middle; }
+
+/* Tiếng Nhật: câu có furigana cần dòng cao hơn để chữ đọc không dính dòng trên */
+.ex, #chosen, #bank, [data-line] { line-height: 2.2; }
+rt { font-size: .55em; color: var(--bs-secondary-color); font-weight: 400; }
+.btn rt { color: inherit; opacity: .75; }
